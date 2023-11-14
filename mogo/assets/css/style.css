@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header.fixed {
+    padding: 10px 0;
     background-color: #eb8b8d;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
 
@@ -163,8 +164,13 @@ h1, h2, h3, h4, h5, h6 {
     color: #fce38a;
 }
 
-.nav_link:hover:after {
+.nav_link:hover:after,
+.nav_link.active:after {
     opacity: 1;
+}
+
+.nav_link.active {
+    color: #fce38a;
 }
 
 /* === Nav toggle === */
@@ -184,6 +190,10 @@ h1, h2, h3, h4, h5, h6 {
     top: 24px;
     right: 24px;
     z-index: 1;
+}
+
+.nav-toggle:focus {
+    outline: 0;
 }
 
 .nav-toggle_item {
@@ -647,11 +657,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* === Reviews ===*/
 .reviews {
-    padding: 0 110px;
     position: relative;
 }
 
+.reviews .slick-slider {
+    padding: 0 110px;
+}
+
 .reviews_item {
+    min-height: 210px;
     padding-left: 255px;
     position: relative;
 }
@@ -700,18 +714,25 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f38181;
 }
 
-.reviews_btn {
+.slick-arrow {
     font-size: 0;
     color: transparent;
+
+    border: 0;
+    background: none;
+    cursor: pointer;
 
     position: absolute;
     top: 50%;
     z-index: 1;
     transform: translateY(-50%);
-
 }
 
-.reviews_btn:after {
+.slick-arrow:focus {
+    outline: 0;
+}
+
+.slick-arrow:after {
     content: "";
     display: block;
     width: 16px;
@@ -721,12 +742,12 @@ h1, h2, h3, h4, h5, h6 {
     border-left: 2px solid #ccc;
 }
 
-.reviews_btn-prev {
+.slick-prev {
     left: 0;
     transform: rotate(-45deg);
 }
 
-.reviews_btn-next {
+.slick-next {
     right: 0;
     transform: rotate(135deg);
 }
@@ -1425,7 +1446,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     /* Reviews */
-    .reviews {
+    .reviews .slick-slider  {
         padding: 0 60px;
     }
 
@@ -1495,6 +1516,10 @@ h1, h2, h3, h4, h5, h6 {
         left: 0;
 
         background-color: #eb8b8d;
+    }
+
+    .nav.active {
+        display: block;
     }
 
     .nav_link {
@@ -1664,11 +1689,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     /* Reviews */
-    .reviews {
+    .reviews .slick-slider  {
         padding: 0;
     }
 
-    .reviews_btn {
+    .slick-arrow {
         top: 18%;
     }
 
